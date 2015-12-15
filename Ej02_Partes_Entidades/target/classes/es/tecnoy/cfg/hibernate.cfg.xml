@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <!-- 		<property name="connection.url">jdbc:mysql://localhost:3306/bbdd</property> 
+ 		<property name="connection.username">root</property> 
+ 		<property name="connection.password">root</property> 
+ 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property> 
+ 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property> -->
+  <property name="connection.url">jdbc:derby://localhost:1527/bbdd;create=true</property>
+  <property name="connection.username">admin</property>
+  <property name="connection.password">admin</property>
+  <property name="connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+  <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+  <!--thread is the short name for org.hibernate.context.ThreadLocalSessionContext      and let Hibernate bind the session automatically to the thread    -->
+  <property name="current_session_context_class">thread</property>
+  <property name="hibernate.show_sql">true</property>
+  <!-- para sacar las consultas x consola-->
+  <property name="hibernate.hbm2ddl.auto">update</property>
+  <!-- validate: comprueba la base de datos que todo este correcto que coincida con la base de datos
+ create: crea la tabla en la BD, no nos sirve xq la 2 vez que ejecutemos vaciamos las tablas
+ create-drop: cuando abro hibernate crea y cuando la cierra la destruye
+ clases -->
+  <mapping class="es.tecnoy.modelo.entidad.Cliente"/>
+  <mapping class="es.tecnoy.modelo.entidad.ContactoCliente"/>
+  <mapping class="es.tecnoy.modelo.entidad.Telefono"/>
+  <mapping class="es.tecnoy.modelo.entidad.Servicio"/>
+  <mapping class="es.tecnoy.modelo.entidad.Parte"/>
+  <mapping class="es.tecnoy.modelo.entidad.EmpresaServicios"/>
+  <mapping class="es.tecnoy.modelo.entidad.Tecnico"/>
+  
+  <mapping resource="es/tecnoy/cfg/queries.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>
