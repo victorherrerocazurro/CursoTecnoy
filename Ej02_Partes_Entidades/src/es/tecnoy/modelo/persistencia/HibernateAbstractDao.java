@@ -1,6 +1,9 @@
 package es.tecnoy.modelo.persistencia;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import es.tecnoy.modelo.entidad.Servicio;
 
 public abstract class HibernateAbstractDao {
 
@@ -17,5 +20,4 @@ public abstract class HibernateAbstractDao {
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
-
 }

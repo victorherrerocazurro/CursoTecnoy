@@ -14,10 +14,10 @@
   <property name="connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
   <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
   <!--thread is the short name for org.hibernate.context.ThreadLocalSessionContext      and let Hibernate bind the session automatically to the thread    -->
-  <property name="current_session_context_class">thread</property>
+  <property name="current_session_context_class">thread</property><!-- jta -->
   <property name="hibernate.show_sql">true</property>
   <!-- para sacar las consultas x consola-->
-  <property name="hibernate.hbm2ddl.auto">update</property>
+  <property name="hibernate.hbm2ddl.auto">create</property>
   <!-- validate: comprueba la base de datos que todo este correcto que coincida con la base de datos
  create: crea la tabla en la BD, no nos sirve xq la 2 vez que ejecutemos vaciamos las tablas
  create-drop: cuando abro hibernate crea y cuando la cierra la destruye

@@ -22,7 +22,7 @@ public class TestHibernateServicioDao {
 			
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		
-		HibernateServicioDao dao = new HibernateServicioDao(sf);
+		ServicioDao dao = new HibernateServicioDao(sf);
 		
 		// Si pusieramos aqui openSession nos crearia una nueva sesion y no accederiamos a la misma que tenemos en el otro lado
 		s= sf.getCurrentSession();

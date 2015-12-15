@@ -20,8 +20,10 @@ public class HibernateParteDao extends HibernateAbstractDao implements ParteDao 
 
 	@Override
 	public void add(Parte entidad) {
-		// TODO Auto-generated method stub
-
+		Session session = getSf().getCurrentSession();
+		Integer codigo = (Integer) session.save(entidad);
+		session.evict(entidad);
+		entidad.setCodigo(codigo);
 	}
 
 	@Override

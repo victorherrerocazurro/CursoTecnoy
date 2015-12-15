@@ -17,13 +17,11 @@ public class HibernateServicioDao extends HibernateAbstractDao implements Servic
 
 	@Override
 	public void add(Servicio entidad) {
-		
 		Session sesion = getSf().getCurrentSession();
 		Integer pk = (Integer) sesion.save(entidad);
 		entidad.setCodigo(pk);
-		
 	}
-
+	
 	@Override
 	public void remove(Integer codigo) {
 		// TODO Auto-generated method stub
