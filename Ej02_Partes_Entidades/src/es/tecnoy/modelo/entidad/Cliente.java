@@ -50,13 +50,9 @@ public class Cliente {
 
 	@OneToMany(mappedBy="cliente", cascade = { CascadeType.ALL }/*, fetch=FetchType.EAGER */) // si hubiera mas relaciones necesito colocar el nombre de atributo donde esta la joincolumn al que me refiero con  mappedBy="cliente"
 	private List<ContactoCliente> contactos; // Esto es opcional dependiendo si lo necesito o no
-
-	
-	
 	
 	public Cliente() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Cliente(Integer codigo, String nombre, String descripcion, String observaciones, String web, Domicilio domicilio) {

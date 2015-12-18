@@ -48,7 +48,6 @@ public class Parte {
 
 	public Parte() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Parte(Integer codigo, String descripcion, Date fechaInicio, Date fechaFin, EstadoParte estado,

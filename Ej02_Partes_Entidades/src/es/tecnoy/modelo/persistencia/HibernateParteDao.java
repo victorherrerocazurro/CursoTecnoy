@@ -5,22 +5,27 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 import es.tecnoy.modelo.entidad.Parte;
 import es.tecnoy.modelo.entidad.Parte.EstadoParte;
+import es.tecnoy.utilidades.hibernate.HibernateContextoPersistencia;
 
 public class HibernateParteDao extends HibernateAbstractDao implements ParteDao {
 
-	// A esto se le llama inyeccion por dependencia o inyeccion por constructor
-	public HibernateParteDao(SessionFactory sf) {
+	public HibernateParteDao() {
 		super();
-		this.setSf(sf);
+		// TODO Auto-generated constructor stub
+	}
+
+	// A esto se le llama inyeccion por dependencia o inyeccion por constructor
+	public HibernateParteDao(HibernateContextoPersistencia cp) {
+		super();
+		this.setCp(cp);
 	}
 
 	@Override
 	public void add(Parte entidad) {
-		Session session = getSf().getCurrentSession();
+		Session session = getCp().getSesionActual();
 		Integer codigo = (Integer) session.save(entidad);
 		session.evict(entidad);
 		entidad.setCodigo(codigo);
@@ -29,7 +34,7 @@ public class HibernateParteDao extends HibernateAbstractDao implements ParteDao 
 	@Override
 	public void remove(Integer codigo) {
 		// TODO Auto-generated method stub
-
+		throw new UnsupportedOperationException("Todavia no esta implementado");
 	}
 
 	@Override
@@ -68,7 +73,7 @@ public class HibernateParteDao extends HibernateAbstractDao implements ParteDao 
 
 	@Override
 	public void updateWhereEstadoNoAprobado(Parte entidad) {
-		Session session = getSf().getCurrentSession();
+		Session session = getCp().getSesionActual();
 		
 //		StringBuilder hql = new StringBuilder("update Parte p set ")
 //		.append("p.descripcion = :descripcion, ")

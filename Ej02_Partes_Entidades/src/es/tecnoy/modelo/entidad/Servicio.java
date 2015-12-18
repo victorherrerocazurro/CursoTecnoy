@@ -46,6 +46,7 @@ public class Servicio {
 	private List<ContactoCliente> contactos;
 	
 
+	//TODO Esta relacion no esta bien planteada, es una relacion de n-1
 	@ManyToMany
 	@JoinTable(name="PTR_SERVICIOS_TECNICOS", 
 				joinColumns={ @JoinColumn(name="FK_CODIGO_SERVICIO", referencedColumnName="codigo")},  //Que columna aporta servicio a la tabla intermedia
@@ -68,7 +69,6 @@ public class Servicio {
 
 	public Servicio() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Servicio(Integer codigo, String descripcion, Date fechaInicio, Date fechaFin, Cliente cliente, EmpresaServicios empresa) {

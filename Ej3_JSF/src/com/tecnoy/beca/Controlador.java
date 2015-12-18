@@ -32,6 +32,6 @@ public class Controlador {
 		
 		setMensaje("La opcion seleccionada es la " + option);
 		
-		return null;
+		return null; //"index"
 	}
 }

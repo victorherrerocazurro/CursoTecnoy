@@ -79,7 +79,6 @@ public class ContactoCliente {
 
 	public ContactoCliente() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<Telefono> getTelefonos() {

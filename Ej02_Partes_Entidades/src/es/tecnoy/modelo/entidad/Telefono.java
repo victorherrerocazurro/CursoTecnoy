@@ -35,7 +35,6 @@ public class Telefono {
 
 	public Telefono() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getCodigo() {

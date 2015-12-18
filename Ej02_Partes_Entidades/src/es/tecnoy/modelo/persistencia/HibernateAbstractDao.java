@@ -1,23 +1,19 @@
 package es.tecnoy.modelo.persistencia;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-import es.tecnoy.modelo.entidad.Servicio;
+import es.tecnoy.utilidades.hibernate.HibernateContextoPersistencia;
 
 public abstract class HibernateAbstractDao {
 
-	private SessionFactory sf;
+	private HibernateContextoPersistencia cp;
 
-	public SessionFactory getSf() {
-		return sf;
+	public HibernateContextoPersistencia getCp() {
+		return cp;
 	}
 
-	public HibernateAbstractDao() {
-		super();
+	public void setCp(HibernateContextoPersistencia cp) {
+		this.cp = cp;
 	}
+	
+	
 
-	public void setSf(SessionFactory sf) {
-		this.sf = sf;
-	}
 }

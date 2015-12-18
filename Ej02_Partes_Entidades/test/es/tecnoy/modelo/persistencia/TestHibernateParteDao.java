@@ -1,28 +1,31 @@
 package es.tecnoy.modelo.persistencia;
 
-import static org.junit.Assert.*;
-
 import java.util.Date;
 
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.Test;
 
 import es.tecnoy.modelo.entidad.Parte;
 import es.tecnoy.modelo.entidad.Parte.EstadoParte;
+import es.tecnoy.utilidades.hibernate.HibernateContextoPersistencia;
+import es.tecnoy.utilidades.hibernate.HibernateGestorTransaccional;
 
 public class TestHibernateParteDao {
 
 	@Test
 	public void testUpdateWhereEstadoNoAprobado() {
 		
-		SessionFactory sf = HibernateUtil.getSessionFactory();
+		HibernateContextoPersistencia cp = new HibernateContextoPersistencia();
 		
-		ParteDao dao = new HibernateParteDao(sf);
+		HibernateGestorTransaccional gt = new HibernateGestorTransaccional();
+		
+		gt.setCp(cp);
+		
+		ParteDao dao = new HibernateParteDao(cp);
 		
 		//------------------Tx 1---------------------
 		
-		Transaction tx = sf.getCurrentSession().beginTransaction();
+		Transaction tx = gt.nuevaTransaccion();
 		
 		Parte parte = new Parte(null, "Nuevo Parte", 
 				new Date(), new Date(), EstadoParte.PENDIENTE, null, null);

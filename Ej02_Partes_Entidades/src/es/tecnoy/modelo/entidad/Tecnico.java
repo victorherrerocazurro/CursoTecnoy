@@ -36,7 +36,6 @@ public class Tecnico {
 
 	public Tecnico() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Tecnico(Integer codigo, String nombre, String apellidos, String email, String telefono,
